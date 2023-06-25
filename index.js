@@ -11,6 +11,7 @@ import { cd, ls, up } from './nwd.js';
 import { add, cat, copy, move, remove, rename } from './fileOperations.js';
 import { operatingSystem } from './os.js';
 import { calculateHash } from './hash.js';
+import { compressBrotli, decompressBrotli } from './brotli.js';
 
 function start() {
   const args = argv.slice(2);
@@ -84,6 +85,14 @@ function initDataListener() {
 
       case 'hash':
         await calculateHash(args);
+        break;
+
+      case 'compress':
+        await compressBrotli(args);
+        break;
+
+      case 'decompress':
+        await decompressBrotli(args);
         break;
 
       default:
