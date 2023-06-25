@@ -9,6 +9,7 @@ import {
 import { EXIT_COMMAND } from './constants.js';
 import { cd, ls, up } from './nwd.js';
 import { add, cat, copy, move, remove, rename } from './fileOperations.js';
+import { operatingSystem } from './os.js';
 
 function start() {
   const args = argv.slice(2);
@@ -74,6 +75,10 @@ function initDataListener() {
 
       case 'rm':
         await remove(args);
+        break;
+
+      case 'os':
+        await operatingSystem(args);
         break;
 
       default:
