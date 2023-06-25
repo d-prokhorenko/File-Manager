@@ -10,6 +10,7 @@ import { EXIT_COMMAND } from './constants.js';
 import { cd, ls, up } from './nwd.js';
 import { add, cat, copy, move, remove, rename } from './fileOperations.js';
 import { operatingSystem } from './os.js';
+import { calculateHash } from './hash.js';
 
 function start() {
   const args = argv.slice(2);
@@ -79,6 +80,10 @@ function initDataListener() {
 
       case 'os':
         await operatingSystem(args);
+        break;
+
+      case 'hash':
+        await calculateHash(args);
         break;
 
       default:
