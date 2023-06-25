@@ -1,9 +1,11 @@
 {
-  "name": "node-nodejs-basics",
+  "name": "file-manager",
   "version": "1.0.0",
   "description": "https://github.com/AlreadyBored/nodejs-assignments/blob/main/assignments/file-manager/assignment.md",
   "type": "module",
-  "scripts": {},
+  "scripts": {
+    "start": "node index.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/d-prokhorenko/File-Manager.git"
