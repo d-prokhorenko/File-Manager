@@ -8,6 +8,7 @@ import {
 } from './functions.js';
 import { EXIT_COMMAND } from './constants.js';
 import { cd, ls, up } from './nwd.js';
+import { add, cat, copy, move, remove, rename } from './fileOperations.js';
 
 function start() {
   const args = argv.slice(2);
@@ -26,7 +27,7 @@ function initListeners(userName) {
 
 function initExitListener(userName) {
   process.on('exit', () =>
-    stdout.write(`Thank you for using File Manager, ${userName}, goodbye!`)
+    stdout.write(`Thank you for using File Manager, ${userName}, goodbye!\n`)
   );
 }
 
@@ -49,6 +50,30 @@ function initDataListener() {
 
       case 'ls':
         await ls();
+        break;
+
+      case 'cat':
+        await cat(args);
+        break;
+
+      case 'add':
+        await add(args);
+        break;
+
+      case 'rn':
+        await rename(args);
+        break;
+
+      case 'cp':
+        await copy(args);
+        break;
+
+      case 'mv':
+        await move(args);
+        break;
+
+      case 'rm':
+        await remove(args);
         break;
 
       default:
